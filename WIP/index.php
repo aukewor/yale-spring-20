@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Scratch</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style media="screen">
+      .close_button {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: 100vh;
+        font-size: 100px;
+        z-index: -1;
+        background-color: white;
+        font-style: normal;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+      }
+
+      div.preface {
+        font-size: 0.65em;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: inherit;
+        margin: 0;
+        z-index: 999;
+        width:32%;
+
+      }
+
+      /* div.preface p#preface {
+      } */
+
+
+      /* @-ms-viewport{
+        width: device-width;
+      } */
+
+      html{
+        margin: 0;
+        padding: 0%;
+        width: 100vw;
+        /* height:100%; */
+      }
+
+      body{
+        font-family: Times;
+        font-size: 32px;
+        margin: 0;
+        padding: 8%;
+        /* height:100%; */
+      }
+
+
+      .caption,.back {
+        font-size: 0.65em;
+      }
+
+      .caption {
+        /* text-align: center; */
+        width: 100%;
+        position: static;
+        width: max-content;
+        display: block;
+        padding-top: 4px;
+        padding-bottom: 4px;
+      }
+
+
+      .caption span.note {
+        display: none;
+      }
+
+      #note1,#note2 {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        font-style: italic;
+      }
+
+      div.word {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 6;
+      }
+
+
+      div.email {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        width: 68%;
+        text-align: center;
+      }
+
+
+      input[type=text] {
+        width: 100%;
+        padding: 2px 6px;
+        font-size: 1em;
+        border-radius: 0;
+        border: none;
+        font-family: Times;
+        background-color: white;
+      }
+
+      .wordcontainer {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 4;
+        width: 68%;
+        display: block;
+        text-align: center;
+        flex-direction: row;
+        /* border:1px solid black; */
+        border-radius: 0;
+      }
+
+      .wordinput {
+        display: flex;
+        flex-direction: row;
+        border:1px solid black;
+        border-radius: 0;
+        width: 100%;
+      }
+
+      .emailinput {
+        display: flex;
+        flex-direction: row;
+        border:1px solid black;
+        border-radius: 0;
+        width: 100%;
+
+      }
+
+      input {
+        flex-grow: 2;
+        border: none;
+      }
+
+      button,input:focus {
+        outline: none;
+      }
+
+      button:hover {
+        cursor: pointer;
+      }
+
+      button[type=submit]{
+        font-size: 1em;
+        font-family: Times;
+        border-radius: 0;
+        padding: 2px 6px;
+        font-size: 1em;
+        border-radius: 0;
+        border: none;
+        font-family: Times;
+        /* position: relative; */
+        text-align: center;
+      }
+
+
+      a.fake {
+        font-style: normal;
+        font-size: 1em;
+        font-family: Times;
+        border-radius: 0;
+        border: none;
+        margin-right:0.2em;
+        margin-bottom: 0;
+      }
+
+      div.back {
+        width: 65px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: white;
+        position: absolute;
+        left: 8%;
+        bottom: 8%;
+        z-index: 99;
+        transition: width 1.5s ease-in-out;
+      }
+
+      div.back:hover {
+        width: 200px;
+      }
+
+      div.back a {
+        font-style: normal;
+        width: max-content;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+<!-- this is the 1st page -->
+    <div class="preface">
+      <a href="#" class="close_button"></a>
+      <p id="preface">The proposition is a picture of reality. <br>
+	    &emsp;&emsp;The proposition is a model of the reality as we think it is. <br><br>
+      The totality of propositions is the language. <br>
+	    &emsp;&emsp;<i>Tractatus</i></p>
+    </div>
+
+
+    <form action="thankyou.php" method="post">
+
+<!-- this is the 2nd page -->
+      <div class="word">
+          <a href="#" class="close_button"></a>
+          <p>Please come up with a place in mind. You can find its shape <a href="https://www.openstreetmap.org/" target="_blank">here</a></p>
+          <div class="caption">
+            *
+            <span class="note">oh actually can you grab that relation ID number for me?
+            that&rsquo;d be very helpful.</span>
+          </div>
+      </div>
+
+<!-- this is the 3rd page -->
+    <div class="wordcontainer">
+      <!-- <a href="#" class="close_button"></a> -->
+      <div class="caption">
+        *
+        <span class="note">yes that relation ID number goes here too.</span>
+      </div>
+
+      <div class="wordinput">
+
+        <input type="text" name="word"
+        placeholder="Do you mind telling me what the place is?">
+        <!-- <a href="#" class="fake" style="font-style: normal;">
+          submit
+        </a> -->
+      </div>
+      <br>
+    <!-- </div> -->
+
+
+<!-- this is the 4th page -->
+      <!-- <div class="email"> -->
+
+        <div class="emailinput">
+          <input type="text" name="email"
+            placeholder="and your email address...?">
+        </div>
+        <br>
+        <button type="submit" name="button">
+            submit
+        </button>
+
+      </div>
+    </form>
+
+<!-- this is back tag -->
+      <div class="back"><a href="index.php">Back to the beginning</a></div>
+
+
+
+      <script>
+        function setupWordCloseButton(){
+          $('.word .close_button').click(function(){
+            $('.word').remove();
+          });
+        }
+
+        function setupPrefaceCloseButton(){
+          $('.preface .close_button').click(function(){
+            $('.preface').remove();
+          });
+        }
+
+        function setupWordInputCloseButton(){
+          $('.wordcontainer .close_button').click(function(){
+            $('.wordcontainer').remove();
+          });
+        }
+
+        function setupFakeButton(){
+          $('.wordcontainer .fake').click(function(){
+            $('.wordcontainer').remove();
+          });
+        }
+
+        function toggleNote1(){
+          $('.word .caption').click(function(){
+            $('.word .caption .note').toggle();
+          });
+        }
+
+        function toggleNote2(){
+          $('.wordcontainer .caption').click(function(){
+            $('.wordcontainer .caption .note').toggle();
+          });
+        }
+
+        $(document).ready(function(){
+          setupPrefaceCloseButton();
+          setupWordCloseButton();
+          setupWordInputCloseButton();
+          setupFakeButton();
+          toggleNote1();
+          toggleNote2();
+        })
+
+
+        var myArray = [
+        "In time, those Unconscionable Maps no longer satisfied, and the Cartographers Guilds struck a Map of the Empire whose size was that of the Empire, which coincided point for point with it. <br> &emsp;&emsp;<i>On Exactitude in Science</i> ",
+        "The proposition is a picture of reality. <br>&emsp;&emsp;The proposition is a model of the reality as we think it is. <br><br>The totality of propositions is the language. <br> &emsp;&emsp;<i>Tractatus</i></p>",
+        ];
+
+        var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
+
+        document.getElementById("preface").innerHTML = randomItem;
+
+
+      </script>
+
+  </body>
+</html>
